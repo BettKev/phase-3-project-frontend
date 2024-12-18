@@ -7,7 +7,7 @@
 
 body {
   font-family: 'Roboto', sans-serif;
-  background-image: url(public/hands.jpg);
+  background-image: url(/hands.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-color: #121212; /* Dark background */
