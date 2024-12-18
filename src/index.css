@@ -272,7 +272,7 @@ footer {
 }
 
 .home_component{
-  width: 50vw;
   height: 50vw;
   margin-bottom: 10vw;
+  opacity: 80%;
 }
