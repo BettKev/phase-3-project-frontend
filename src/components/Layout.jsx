@@ -12,17 +12,6 @@ function Layout({ children }) {
             <Link className="navbar-brand" to="/">
               Your Company Name
             </Link>
-            <button
-              className="navbar-toggler"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarNav"
-              aria-controls="navbarNav"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span className="navbar-toggler-icon"></span>
-            </button>
             <div className="collapse navbar-collapse" id="navbarNav">
               <ul className="navbar-nav">
                 <li className="nav-item">
@@ -48,6 +37,17 @@ function Layout({ children }) {
 
       {/* Main Content */}
       <main className="flex-grow-1 container my-4 pt-5">
+      {/* <div
+  style={{
+    backgroundImage: "url('public/hands.jpg')",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    width: "100%",
+    height: "100vh", // Full viewport height
+    zIndex: "1"
+  }}
+></div> */}
+
         {children}
       </main>
 
