@@ -4,50 +4,37 @@ import { Link } from "react-router-dom";
 
 function Layout({ children }) {
   return (
-    <div className="d-flex flex-column min-vh-100">
+    <div>
       {/* Sticky Navbar */}
-      <header>
-        <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-          <div className="container-fluid">
-            <Link className="navbar-brand" to="/">
-              Your Company Name
+      <header className="navbar">
+        <nav>
+            <Link className="nav_text" to="/">
+              CareConnect
             </Link>
-            <div className="collapse navbar-collapse" id="navbarNav">
-              <ul className="navbar-nav">
-                <li className="nav-item">
-                  <Link className="nav-link active" aria-current="page" to="/">
+              <div className="link_text">
+              <ul>
+                <li>
+                  <Link className="nav_text" to="/">
                     Home
                   </Link>
                 </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/about">
+                <li>
+                  <Link className="nav_text" to="/about">
                     About Us
                   </Link>
                 </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/user_registration">
+                <li>
+                  <Link className="nav_text" to="/user_registration">
                     User Registration
                   </Link>
                 </li>
               </ul>
-            </div>
-          </div>
+              </div> 
         </nav>
       </header>
 
       {/* Main Content */}
       <main className="flex-grow-1 container my-4 pt-5">
-      {/* <div
-  style={{
-    backgroundImage: "url('public/hands.jpg')",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    width: "100%",
-    height: "100vh", // Full viewport height
-    zIndex: "1"
-  }}
-></div> */}
-
         {children}
       </main>
 
