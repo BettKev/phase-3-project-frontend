@@ -13,6 +13,9 @@ function Layout({ children }) {
             <li>
               <Link to="/about">About Us</Link>
             </li>
+            <li>
+              <Link to="/user_registration">User Registration</Link>
+            </li>
           </ul>
         </nav>
       </header>

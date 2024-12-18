@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-function App() {
+function UserReg() {
   const [persons, setPersons] = useState([]); // State for storing persons
   const [newPerson, setNewPerson] = useState({
     name: "",
@@ -271,4 +271,4 @@ function App() {
   );
 }
 
-export default App;
+export default UserReg;
