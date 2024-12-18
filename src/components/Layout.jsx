@@ -23,13 +23,30 @@ function Layout({ children }) {
                     About Us
                   </Link>
                 </li>
-                <li>
+                {/* <li>
                   <Link className="nav_text" to="/user_registration">
                     User Registration
                   </Link>
-                </li>
+                </li> */}
               </ul>
               </div> 
+            <button>
+            <div>
+             <a style={{
+        textDecoration: "none",
+        color: "white",
+        fontWeight: "bolder",
+        fontSize: "1rem"
+      }}
+          href="https://lzyw1gvy.status.cron-job.org/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-decoration-none"
+        >
+          Check Status of CareConnect Database
+        </a>
+             </div>
+            </button>
         </nav>
       </header>
 
@@ -39,16 +56,22 @@ function Layout({ children }) {
       </main>
 
       {/* Footer */}
-      <footer className="bg-light text-center py-3 mt-auto">
-        <a
+      <footer>
+      <button>
+      <a style={{
+        textDecoration: "none",
+        color: "white",
+        fontWeight: "bolder"
+      }}
           href="https://lzyw1gvy.status.cron-job.org/"
           target="_blank"
           rel="noopener noreferrer"
           className="text-decoration-none"
         >
-          Check Server Status
+          Check Status of CareConnect Database
         </a>
-        <p className="mb-0">&copy; 2024 Your Company Name</p>
+      </button>
+        <p className="mb-0">&copy; 2024 Care Connect</p>
       </footer>
     </div>
   );
