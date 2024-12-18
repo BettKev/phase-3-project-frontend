@@ -31,7 +31,7 @@ function App() {
   }, []);
 
   const fetchPersons = () => {
-    axios.get('http://127.0.0.1:8000/persons')
+    axios.get('https://phase-3-project-backend.onrender.com/persons')
       .then(response => {
         setPersons(response.data);
       })
@@ -41,7 +41,7 @@ function App() {
   };
 
   const fetchResources = (personId) => {
-    axios.get(`http://127.0.0.1:8000/persons/${personId}/resources`)
+    axios.get(`https://phase-3-project-backend.onrender.com/persons/${personId}/resources`)
       .then(response => {
         setResources(response.data);
       })
@@ -51,7 +51,7 @@ function App() {
   };
 
   const fetchPersonDetails = (personId) => {
-    axios.get(`http://127.0.0.1:8000/persons/${personId}`)
+    axios.get(`https://phase-3-project-backend.onrender.com/persons/${personId}`)
       .then(response => {
         setPersonDetails(response.data);  // Store the person's details in state
         setIsModalOpen(true); // Open the modal after fetching the details
@@ -62,7 +62,7 @@ function App() {
   };
 
   const addPerson = () => {
-    axios.post('http://127.0.0.1:8000/persons', newPerson)
+    axios.post('https://phase-3-project-backend.onrender.com/persons', newPerson)
       .then(() => {
         fetchPersons(); // Refresh the list after adding
         setNewPerson({
@@ -84,7 +84,7 @@ function App() {
   };
 
   const deletePerson = (personId) => {
-    axios.delete(`http://127.0.0.1:8000/persons/${personId}`)
+    axios.delete(`https://phase-3-project-backend.onrender.com/persons/${personId}`)
       .then(() => {
         fetchPersons(); // Refresh the list after deletion
       })
@@ -95,7 +95,7 @@ function App() {
 
   const addResource = () => {
     if (selectedPersonId) {
-      axios.post(`http://127.0.0.1:8000/persons/${selectedPersonId}/resources`, newResource)
+      axios.post(`https://phase-3-project-backend.onrender.com/persons/${selectedPersonId}/resources`, newResource)
         .then(() => {
           fetchResources(selectedPersonId); // Refresh the list after adding
           setNewResource({ name: "", description: "" });
@@ -112,7 +112,7 @@ function App() {
       description: prompt("Enter new description for the resource:")
     };
 
-    axios.put(`http://127.0.0.1:8000/resources/${resourceId}`, updatedResource)
+    axios.put(`https://phase-3-project-backend.onrender.com/resources/${resourceId}`, updatedResource)
       .then(() => {
         fetchResources(selectedPersonId); // Refresh the list after updating
       })
@@ -122,7 +122,7 @@ function App() {
   };
 
   const deleteResource = (resourceId) => {
-    axios.delete(`http://127.0.0.1:8000/resources/${resourceId}`)
+    axios.delete(`https://phase-3-project-backend.onrender.com/resources/${resourceId}`)
       .then(() => {
         fetchResources(selectedPersonId); // Refresh the list after deletion
       })
