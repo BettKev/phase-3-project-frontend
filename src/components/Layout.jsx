@@ -21,6 +21,7 @@ function Layout({ children }) {
       </header>
       <main>{children}</main>
       <footer>
+        <a href="https://lzyw1gvy.status.cron-job.org/" target="blank">check server status</a>
         <p>&copy; 2024 Your Company Name</p>
       </footer>
     </div>
