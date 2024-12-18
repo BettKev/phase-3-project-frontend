@@ -9,9 +9,6 @@ function HomePage() {
         This is the homepage of our website. Feel free to explore and learn more about what we do.
       </p>
     </div>
-    <div className="home_component2">
-
-    </div>
    </>
   );
 }
