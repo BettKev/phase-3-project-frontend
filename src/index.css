@@ -79,7 +79,8 @@ button:hover {
 .modal {
   position: fixed;
   top: 0;
-  padding-top: 20%;
+  padding-top: 45%;
+  padding-bottom: 10%;
   overflow: auto;
   left: 0;
   width: 100%;
