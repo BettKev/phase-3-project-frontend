@@ -30,7 +30,6 @@ function HomePage() {
     </Link></button>
         </div>
         <div className="hero-image">
-          {/* Replace with actual image */}
           <img
             src="/hero.jpg" 
             alt="Inclusive Support" 
