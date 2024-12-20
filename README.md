@@ -48,3 +48,25 @@ This will open your app in a localhost and access the app using the provided add
 ### Deployement
 
 You can use any cloud platform to deploy the project in this instance the project has been deployed in **Vercel.com** at [CareConnectFrontend](https://phase-3-project-frontend-nine.vercel.app/)
+
+# Links
+
+Slides
+
+https://docs.google.com/presentation/d/1pc5miuVEzVZsrmlNHGsRC-CaiN1nEgs-Kz1gkMwOjLk/edit#slide=id.g5f461a8324_0_51
+
+
+Frontend
+
+https://github.com/BettKev/phase-3-project-frontend.git
+
+
+Backend
+
+https://github.com/BettKev/phase-3-project-backend.git
+
+
+Frontend deployment in vercel: https://phase-3-project-frontend-nine.vercel.app
+
+
+Backend deployment in render: https://phase-3-project-backend.onrender.com
