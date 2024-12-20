@@ -33,7 +33,7 @@ function UserReg() {
   }, []);
 
   const fetchPersons = () => {
-    axios.get('http://0.0.0.0:8000/persons')
+    axios.get('https://phase-3-project-backend.onrender.com/persons')
       .then(response => {
         setPersons(response.data);
       })
@@ -43,7 +43,7 @@ function UserReg() {
   };
 
   const fetchResources = (personId) => {
-    axios.get(`http://0.0.0.0:8000/persons/${personId}/resources`)
+    axios.get(`https://phase-3-project-backend.onrender.com/persons/${personId}/resources`)
       .then(response => {
         setResources(response.data);
       })
@@ -53,7 +53,7 @@ function UserReg() {
   };
 
   const fetchPersonDetails = (personId) => {
-    axios.get(`http://0.0.0.0:8000/persons/${personId}`)
+    axios.get(`https://phase-3-project-backend.onrender.com/persons/${personId}`)
       .then(response => {
         setPersonDetails(response.data);  // Store the person's details in state
         setIsModalOpen(true); // Open the modal after fetching the details
@@ -64,7 +64,7 @@ function UserReg() {
   };
 
   const addPerson = () => {
-    axios.post('http://0.0.0.0:8000/persons', newPerson)
+    axios.post('https://phase-3-project-backend.onrender.com/persons', newPerson)
       .then(() => {
         fetchPersons(); // Refresh the list after adding
         setNewPerson({
@@ -86,7 +86,7 @@ function UserReg() {
   };
 
   const deletePerson = (personId) => {
-    axios.delete(`http://0.0.0.0:8000/persons/${personId}`)
+    axios.delete(`https://phase-3-project-backend.onrender.com/persons/${personId}`)
       .then(() => {
         fetchPersons(); // Refresh the list after deletion
       })
@@ -109,7 +109,7 @@ function UserReg() {
       medical_conditions: prompt("Enter new medical conditions (comma-separated):").split(',').map(item => item.trim())
     };
   
-    axios.put(`http://0.0.0.0:8000/persons/${personId}`, updatedPerson)
+    axios.put(`https://phase-3-project-backend.onrender.com/persons/${personId}`, updatedPerson)
       .then(() => {
         fetchPersons(); // Refresh the list after updating
       })
@@ -125,7 +125,7 @@ function UserReg() {
   // Resource CRUD operations start here
   const addResource = () => {
     if (selectedPersonId) {
-      axios.post(`http://0.0.0.0:8000/persons/${selectedPersonId}/resources`, newResource)
+      axios.post(`https://phase-3-project-backend.onrender.com/persons/${selectedPersonId}/resources`, newResource)
         .then(() => {
           fetchResources(selectedPersonId); // Refresh the list after adding
           setNewResource({ name: "", description: "" });
@@ -142,7 +142,7 @@ function UserReg() {
       description: prompt("Enter new description for the resource:")
     };
 
-    axios.put(`http://0.0.0.0:8000/resources/${resourceId}`, updatedResource)
+    axios.put(`https://phase-3-project-backend.onrender.com/resources/${resourceId}`, updatedResource)
       .then(() => {
         fetchResources(selectedPersonId); // Refresh the list after updating
       })
@@ -152,7 +152,7 @@ function UserReg() {
   };
 
   const deleteResource = (resourceId) => {
-    axios.delete(`http://0.0.0.0:8000/resources/${resourceId}`)
+    axios.delete(`https://phase-3-project-backend.onrender.com/resources/${resourceId}`)
       .then(() => {
         fetchResources(selectedPersonId); // Refresh the list after deletion
       })
