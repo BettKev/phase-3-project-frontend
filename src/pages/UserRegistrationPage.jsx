@@ -98,7 +98,7 @@ function UserReg() {
   const updatePerson = (personId) => {
     const updatedPerson = {
       name: prompt("Enter new name:"),
-      age: parseInt(prompt("Enter new age:"), 10), // Ensure age is a number
+      age: prompt("Enter new age:"),
       gender: prompt("Enter new gender:"),
       disability_type: prompt("Enter new disability type:"),
       disability_severity: prompt("Enter new disability severity:"),
