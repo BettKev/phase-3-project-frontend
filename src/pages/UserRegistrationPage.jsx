@@ -25,13 +25,15 @@ function UserReg() {
   const [personDetails, setPersonDetails] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false); // State for controlling modal visibility
 
+
+  // Person crud operations start here
   // Fetch all persons when the component mounts
   useEffect(() => {
     fetchPersons();
   }, []);
 
   const fetchPersons = () => {
-    axios.get('https://phase-3-project-backend.onrender.com/persons')
+    axios.get('http://0.0.0.0:8000/persons')
       .then(response => {
         setPersons(response.data);
       })
@@ -41,7 +43,7 @@ function UserReg() {
   };
 
   const fetchResources = (personId) => {
-    axios.get(`https://phase-3-project-backend.onrender.com/persons/${personId}/resources`)
+    axios.get(`http://0.0.0.0:8000/persons/${personId}/resources`)
       .then(response => {
         setResources(response.data);
       })
@@ -51,7 +53,7 @@ function UserReg() {
   };
 
   const fetchPersonDetails = (personId) => {
-    axios.get(`https://phase-3-project-backend.onrender.com/persons/${personId}`)
+    axios.get(`http://0.0.0.0:8000/persons/${personId}`)
       .then(response => {
         setPersonDetails(response.data);  // Store the person's details in state
         setIsModalOpen(true); // Open the modal after fetching the details
@@ -62,7 +64,7 @@ function UserReg() {
   };
 
   const addPerson = () => {
-    axios.post('https://phase-3-project-backend.onrender.com/persons', newPerson)
+    axios.post('http://0.0.0.0:8000/persons', newPerson)
       .then(() => {
         fetchPersons(); // Refresh the list after adding
         setNewPerson({
@@ -84,7 +86,7 @@ function UserReg() {
   };
 
   const deletePerson = (personId) => {
-    axios.delete(`https://phase-3-project-backend.onrender.com/persons/${personId}`)
+    axios.delete(`http://0.0.0.0:8000/persons/${personId}`)
       .then(() => {
         fetchPersons(); // Refresh the list after deletion
       })
@@ -93,9 +95,37 @@ function UserReg() {
       });
   };
 
+  const updatePerson = (personId) => {
+    const updatedPerson = {
+      name: prompt("Enter new name:"),
+      age: parseInt(prompt("Enter new age:"), 10), // Ensure age is a number
+      gender: prompt("Enter new gender:"),
+      disability_type: prompt("Enter new disability type:"),
+      disability_severity: prompt("Enter new disability severity:"),
+      contact_number: prompt("Enter new contact number:"),
+      emergency_contact_name: prompt("Enter new emergency contact name:"),
+      emergency_contact_number: prompt("Enter new emergency contact number:"),
+      address: prompt("Enter new address:"),
+      medical_conditions: prompt("Enter new medical conditions (comma-separated):").split(',').map(item => item.trim())
+    };
+  
+    axios.put(`http://0.0.0.0:8000/persons/${personId}`, updatedPerson)
+      .then(() => {
+        fetchPersons(); // Refresh the list after updating
+      })
+      .catch(error => {
+        console.error("Error updating person:", error.response?.data || error);
+      });
+  };
+  
+
+  // Person crud operations end here
+
+
+  // Resource CRUD operations start here
   const addResource = () => {
     if (selectedPersonId) {
-      axios.post(`https://phase-3-project-backend.onrender.com/persons/${selectedPersonId}/resources`, newResource)
+      axios.post(`http://0.0.0.0:8000/persons/${selectedPersonId}/resources`, newResource)
         .then(() => {
           fetchResources(selectedPersonId); // Refresh the list after adding
           setNewResource({ name: "", description: "" });
@@ -112,7 +142,7 @@ function UserReg() {
       description: prompt("Enter new description for the resource:")
     };
 
-    axios.put(`https://phase-3-project-backend.onrender.com/resources/${resourceId}`, updatedResource)
+    axios.put(`http://0.0.0.0:8000/resources/${resourceId}`, updatedResource)
       .then(() => {
         fetchResources(selectedPersonId); // Refresh the list after updating
       })
@@ -122,7 +152,7 @@ function UserReg() {
   };
 
   const deleteResource = (resourceId) => {
-    axios.delete(`https://phase-3-project-backend.onrender.com/resources/${resourceId}`)
+    axios.delete(`http://0.0.0.0:8000/resources/${resourceId}`)
       .then(() => {
         fetchResources(selectedPersonId); // Refresh the list after deletion
       })
@@ -135,6 +165,8 @@ function UserReg() {
     setIsModalOpen(false);
     setPersonDetails(null); // Clear person details when closing the modal
   };
+
+  // Resource CRUD operations end here
 
   return (
     <div className="App">
@@ -215,6 +247,7 @@ function UserReg() {
               fetchResources(person.id);
               fetchPersonDetails(person.id); // Fetch full details of the person
             }}>View Resources & Details</button>
+            <button onClick={() => updatePerson(person.id)}>Update</button>
             <button onClick={() => deletePerson(person.id)}>Delete</button>
           </div>
         ))}
